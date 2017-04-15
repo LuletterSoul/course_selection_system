@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/selection_course_system_db</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password">15298382837LIU</property>
+    <property name="hibernate.c3p0.max_size">20</property>
+    <property name="hibernate.c3p0.min_size">1</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+    <property name="hibernate.format_sql">true</property>
+    <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
+    <property name="hibernate.show_sql">true</property>
+    <property name="hbm2ddl.auto">update</property>
+    <mapping class="org.app.entity.Address"/>
+    <mapping class="org.app.entity.Course"/>
+    <mapping class="org.app.entity.CourseArrangement"/>
+    <mapping class="org.app.entity.Department"/>
+    <mapping class="org.app.entity.Phone"/>
+    <mapping class="org.app.entity.Profession"/>
+    <mapping class="org.app.entity.Student"/>
+    <mapping class="org.app.entity.Teacher"/>
+  </session-factory>
+  
+  
+</hibernate-configuration>

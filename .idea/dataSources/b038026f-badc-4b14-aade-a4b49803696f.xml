@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="selection_course_system_db@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.1">
+    <root id="1"/>
+    <schema id="2" parent="1" name="information_schema">
+      <Current>1</Current>
+    </schema>
+    <schema id="3" parent="1" name="mysql"/>
+    <schema id="4" parent="1" name="performance_schema"/>
+    <schema id="5" parent="1" name="sakila"/>
+    <schema id="6" parent="1" name="selection_course_system_db">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="7" parent="1" name="sys"/>
+    <schema id="8" parent="1" name="world"/>
+    <schema id="9" parent="1" name="system_db"/>
+    <schema id="10" parent="1" name="sc_system_db">
+      <Visible>1</Visible>
+    </schema>
+    <table id="11" parent="6" name="address_inf"/>
+    <table id="12" parent="6" name="adminclass_inf"/>
+    <table id="13" parent="6" name="building_classroom_inf"/>
+    <table id="14" parent="6" name="classroom_inf"/>
+    <table id="15" parent="6" name="course_classroom"/>
+    <table id="16" parent="6" name="course_inf"/>
+    <table id="17" parent="6" name="course_schedule"/>
+    <table id="18" parent="6" name="department_inf"/>
+    <table id="19" parent="6" name="hibernate_sequence"/>
+    <table id="20" parent="6" name="phone_inf"/>
+    <table id="21" parent="6" name="profession_inf"/>
+    <table id="22" parent="6" name="schedule_inf"/>
+    <table id="23" parent="6" name="student_address_inf"/>
+    <table id="24" parent="6" name="student_class_inf"/>
+    <table id="25" parent="6" name="student_course"/>
+    <table id="26" parent="6" name="student_department_inf"/>
+    <table id="27" parent="6" name="student_inf"/>
+    <table id="28" parent="6" name="student_pro_inf"/>
+    <table id="29" parent="6" name="teacher_address_inf"/>
+    <table id="30" parent="6" name="teacher_course"/>
+    <table id="31" parent="6" name="teacher_department_inf"/>
+    <table id="32" parent="6" name="teacher_inf"/>
+    <table id="33" parent="6" name="teaching_building_inf"/>
+    <table id="34" parent="10" name="class_inf"/>
+    <table id="35" parent="10" name="course_inf"/>
+    <table id="36" parent="10" name="teaching_time_inf"/>
+    <column id="37" parent="11" name="addressId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="38" parent="11" name="city">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="11" name="house">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="40" parent="11" name="prefecture">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="41" parent="11" name="province">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="11" name="village">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="43" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>addressId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="44" parent="12" name="classId">
+      <Position>1</Position>
+      <DataType>varchar(30)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="45" parent="12" name="studentNumber">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="46" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>classId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="47" parent="13" name="buildingName">
+      <Position>1</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="48" parent="13" name="classroomId">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="49" parent="13" name="UK_kva5yupu2i90fi7fuxalptjj1">
+      <ColNames>classroomId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="50" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>buildingName
+classroomId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="51" parent="13" name="UK_kva5yupu2i90fi7fuxalptjj1">
+      <ColNames>classroomId</ColNames>
+      <UnderlyingIndexName>UK_kva5yupu2i90fi7fuxalptjj1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="52" parent="13" name="FKcwltl0is3e25de4vbv07dtf5m">
+      <ColNames>buildingName</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>teaching_building_inf</RefTableName>
+      <RefColNames>buildingName</RefColNames>
+    </foreign-key>
+    <foreign-key id="53" parent="13" name="FK6ds971x3gm43ahs8c356a9w3x">
+      <ColNames>classroomId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>classroom_inf</RefTableName>
+      <RefColNames>classroomId</RefColNames>
+    </foreign-key>
+    <column id="54" parent="14" name="classroomId">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="14" name="capacity">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="56" parent="14" name="classroomDoorId">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <index id="57" parent="14" name="UK_aygikxpve6b3v4s90y1c39t67">
+      <ColNames>classroomId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="58" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>classroomId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="59" parent="14" name="UK_aygikxpve6b3v4s90y1c39t67">
+      <ColNames>classroomId</ColNames>
+      <UnderlyingIndexName>UK_aygikxpve6b3v4s90y1c39t67</UnderlyingIndexName>
+    </key>
+    <column id="60" parent="15" name="classroomId">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="15" name="arrangementId">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="62" parent="15" name="UK_dexvk3em2ai2fbajwv6ekh4vh">
+      <ColNames>arrangementId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="63" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>classroomId
+arrangementId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="64" parent="15" name="UK_dexvk3em2ai2fbajwv6ekh4vh">
+      <ColNames>arrangementId</ColNames>
+      <UnderlyingIndexName>UK_dexvk3em2ai2fbajwv6ekh4vh</UnderlyingIndexName>
+    </key>
+    <foreign-key id="65" parent="15" name="FKr76qrkatk7w6u6qfpovn7ovib">
+      <ColNames>classroomId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>classroom_inf</RefTableName>
+      <RefColNames>classroomId</RefColNames>
+    </foreign-key>
+    <foreign-key id="66" parent="15" name="FKp6oiolkticgu8q0o4lavtbiu9">
+      <ColNames>arrangementId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>teacher_course</RefTableName>
+      <RefColNames>arrangementId</RefColNames>
+    </foreign-key>
+    <column id="67" parent="16" name="courseId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="16" name="isCompulsory">
+      <Position>4</Position>
+      <DataType>varchar(4)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="16" name="courseName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="16" name="courseProperty">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="71" parent="16" name="examType">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="72" parent="16" name="credit">
+      <Position>3</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="73" parent="16" name="courseTime">
+      <Position>7</Position>
+      <DataType>tinyint(4)|0</DataType>
+    </column>
+    <column id="74" parent="16" name="creditHour">
+      <Position>8</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="75" parent="16" name="finalWeek">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="76" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>courseId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="77" parent="17" name="arrangementId">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="17" name="timeId">
+      <Position>2</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="79" parent="17" name="UK_69dsbmeqcweanww5adw7obduo">
+      <ColNames>timeId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="80" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>arrangementId
+timeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="81" parent="17" name="UK_69dsbmeqcweanww5adw7obduo">
+      <ColNames>timeId</ColNames>
+      <UnderlyingIndexName>UK_69dsbmeqcweanww5adw7obduo</UnderlyingIndexName>
+    </key>
+    <foreign-key id="82" parent="17" name="FKtjra0k5438f1ppv3a4e8bwqcn">
+      <ColNames>arrangementId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>teacher_course</RefTableName>
+      <RefColNames>arrangementId</RefColNames>
+    </foreign-key>
+    <foreign-key id="83" parent="17" name="FK55q4fdvn5dcn1rfswdokn71n9">
+      <ColNames>timeId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>schedule_inf</RefTableName>
+      <RefColNames>timeId</RefColNames>
+    </foreign-key>
+    <column id="84" parent="18" name="departmentId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="85" parent="18" name="departmentName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="18" name="settledTime">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="87" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>departmentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="88" parent="19" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="89" parent="20" name="number">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="20" name="belong">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="91" parent="20" name="areaCode">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="92" parent="20" name="teleOperator">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="93" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>number</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="94" parent="21" name="proId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="21" name="proLevel">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="96" parent="21" name="proName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="21" name="proType">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="98" parent="21" name="departmentId">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="99" parent="21" name="FK361h2y523j90vdeydlopahxft">
+      <ColNames>departmentId</ColNames>
+    </index>
+    <key id="100" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>proId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="101" parent="21" name="FK361h2y523j90vdeydlopahxft">
+      <ColNames>departmentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>department_inf</RefTableName>
+      <RefColNames>departmentId</RefColNames>
+    </foreign-key>
+    <column id="102" parent="22" name="timeId">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="103" parent="22" name="timeNode">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="104" parent="22" name="week">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="105" parent="22" name="workday">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="106" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>timeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="107" parent="23" name="addressId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="108" parent="23" name="studentId">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="109" parent="23" name="FK29knqsfp0dobw180jc867xqje">
+      <ColNames>addressId</ColNames>
+    </index>
+    <key id="110" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="111" parent="23" name="FK29knqsfp0dobw180jc867xqje">
+      <ColNames>addressId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>address_inf</RefTableName>
+      <RefColNames>addressId</RefColNames>
+    </foreign-key>
+    <foreign-key id="112" parent="23" name="FK2wgqoyjgx4vv18gdg6ifmh9yh">
+      <ColNames>studentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>student_inf</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <column id="113" parent="24" name="classId">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="114" parent="24" name="studentId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="115" parent="24" name="FK18sw8i4prx584wvj87a5ntwlg">
+      <ColNames>classId</ColNames>
+    </index>
+    <key id="116" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="117" parent="24" name="FKemnio2dkafr5ba6bl5qy2ibs2">
+      <ColNames>studentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>student_inf</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <foreign-key id="118" parent="24" name="FK18sw8i4prx584wvj87a5ntwlg">
+      <ColNames>classId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>adminclass_inf</RefTableName>
+      <RefColNames>classId</RefColNames>
+    </foreign-key>
+    <column id="119" parent="25" name="selectionId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="120" parent="25" name="score">
+      <Position>2</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="121" parent="25" name="courseId">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="122" parent="25" name="studentId">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="123" parent="25" name="FKeii6ewo1ug9vo1nqqv3xmemyr">
+      <ColNames>courseId</ColNames>
+    </index>
+    <index id="124" parent="25" name="FKgccdpra49mf6wokm98aucayrj">
+      <ColNames>studentId</ColNames>
+    </index>
+    <key id="125" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>selectionId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="126" parent="25" name="FKeii6ewo1ug9vo1nqqv3xmemyr">
+      <ColNames>courseId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>course_inf</RefTableName>
+      <RefColNames>courseId</RefColNames>
+    </foreign-key>
+    <foreign-key id="127" parent="25" name="FKgccdpra49mf6wokm98aucayrj">
+      <ColNames>studentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>student_inf</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <column id="128" parent="26" name="departmentId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="129" parent="26" name="studentId">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="130" parent="26" name="FKa7mv94yy80uyddutcxfr7o0uo">
+      <ColNames>departmentId</ColNames>
+    </index>
+    <key id="131" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="132" parent="26" name="FKa7mv94yy80uyddutcxfr7o0uo">
+      <ColNames>departmentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>department_inf</RefTableName>
+      <RefColNames>departmentId</RefColNames>
+    </foreign-key>
+    <foreign-key id="133" parent="26" name="FK4ymlx66hxdqlaorj9k7yf6fmv">
+      <ColNames>studentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>student_inf</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <column id="134" parent="27" name="studentId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="135" parent="27" name="grade">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="136" parent="27" name="studentName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="137" parent="27" name="gender">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="138" parent="27" name="hometown">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="139" parent="27" name="studentAge">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="140" parent="27" name="enrollmentTime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="141" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="142" parent="28" name="proId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="143" parent="28" name="studentId">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="144" parent="28" name="FK6sutot10cpovgp767klt1hch5">
+      <ColNames>proId</ColNames>
+    </index>
+    <key id="145" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>studentId
+proId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="146" parent="28" name="FK6sutot10cpovgp767klt1hch5">
+      <ColNames>proId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>profession_inf</RefTableName>
+      <RefColNames>proId</RefColNames>
+    </foreign-key>
+    <foreign-key id="147" parent="28" name="FK5g2h30j807j9locptk8k7doqq">
+      <ColNames>studentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>student_inf</RefTableName>
+      <RefColNames>studentId</RefColNames>
+    </foreign-key>
+    <column id="148" parent="29" name="teacherId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="149" parent="29" name="addressId">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="150" parent="29" name="UK_7g1hheqiy0oan37kcelp57gvp">
+      <ColNames>addressId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="151" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>teacherId
+addressId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="152" parent="29" name="UK_7g1hheqiy0oan37kcelp57gvp">
+      <ColNames>addressId</ColNames>
+      <UnderlyingIndexName>UK_7g1hheqiy0oan37kcelp57gvp</UnderlyingIndexName>
+    </key>
+    <foreign-key id="153" parent="29" name="FKccwybf02jygp31ghwbfntg638">
+      <ColNames>teacherId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>teacher_inf</RefTableName>
+      <RefColNames>teacherId</RefColNames>
+    </foreign-key>
+    <foreign-key id="154" parent="29" name="FKp2j0va1mb297tc69lkh5ykh30">
+      <ColNames>addressId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>address_inf</RefTableName>
+      <RefColNames>addressId</RefColNames>
+    </foreign-key>
+    <column id="155" parent="30" name="arrangementId">
+      <Position>4</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="156" parent="30" name="courseOrder">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="157" parent="30" name="courseId">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="158" parent="30" name="teacherId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="159" parent="30" name="FKoykylqgbplk6kh5xighlgtdr9">
+      <ColNames>courseId</ColNames>
+    </index>
+    <index id="160" parent="30" name="UK_rr9j06dku69g8uwurg3q7to9n">
+      <ColNames>teacherId</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="161" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>arrangementId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="162" parent="30" name="UK_rr9j06dku69g8uwurg3q7to9n">
+      <ColNames>teacherId</ColNames>
+      <UnderlyingIndexName>UK_rr9j06dku69g8uwurg3q7to9n</UnderlyingIndexName>
+    </key>
+    <foreign-key id="163" parent="30" name="FK8nhrcrgm7qijd54kuf40se3ty">
+      <ColNames>teacherId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>teacher_inf</RefTableName>
+      <RefColNames>teacherId</RefColNames>
+    </foreign-key>
+    <foreign-key id="164" parent="30" name="FKoykylqgbplk6kh5xighlgtdr9">
+      <ColNames>courseId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>course_inf</RefTableName>
+      <RefColNames>courseId</RefColNames>
+    </foreign-key>
+    <column id="165" parent="31" name="departmentId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="166" parent="31" name="teacherId">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="167" parent="31" name="FKl13boo1jy29febtgfw7u7xan4">
+      <ColNames>departmentId</ColNames>
+    </index>
+    <key id="168" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>teacherId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="169" parent="31" name="FKl13boo1jy29febtgfw7u7xan4">
+      <ColNames>departmentId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>department_inf</RefTableName>
+      <RefColNames>departmentId</RefColNames>
+    </foreign-key>
+    <foreign-key id="170" parent="31" name="FK980uj4h1mk87n0ystvyq5bugm">
+      <ColNames>teacherId</ColNames>
+      <RefSchemaName>selection_course_system_db</RefSchemaName>
+      <RefTableName>teacher_inf</RefTableName>
+      <RefColNames>teacherId</RefColNames>
+    </foreign-key>
+    <column id="171" parent="32" name="teacherId">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="172" parent="32" name="age">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="173" parent="32" name="duty">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="174" parent="32" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="175" parent="32" name="teacherName">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="176" parent="32" name="birthday">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="177" parent="32" name="researchField">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="178" parent="32" name="highestDegree">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="179" parent="32" name="achievement">
+      <Position>9</Position>
+      <DataType>varchar(90)|0</DataType>
+    </column>
+    <key id="180" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>teacherId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="181" parent="33" name="buildingName">
+      <Position>1</Position>
+      <DataType>varchar(25)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="182" parent="33" name="buildingLocation">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="183" parent="33" name="coveringArea">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+    </column>
+    <column id="184" parent="33" name="storeyNumber">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="185" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>buildingName</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="186" parent="34" name="classId">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="187" parent="34" name="studentNumber">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="188" parent="35" name="courseId">
+      <Position>1</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="189" parent="35" name="courseOrder">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="190" parent="35" name="courseName">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="191" parent="35" name="creditHour">
+      <Position>4</Position>
+      <DataType>float|0</DataType>
+    </column>
+    <column id="192" parent="35" name="courseProperty">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="193" parent="35" name="isDegree">
+      <Position>6</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="194" parent="36" name="timeId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="195" parent="36" name="week">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="196" parent="36" name="workday">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="197" parent="36" name="timeNode">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+  </database-model>
+</dataSource>
